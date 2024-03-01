@@ -2,6 +2,7 @@
 import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
 import { authenticateUser } from '../../utils/auth.js';
 import { goto } from '$app/navigation';
+import { logInAlert,failedLogInAlert } from '../../utils/alert.js';
 
 let formErrors = {};
 //set a variable "clicked" to "false" initially, so when clicked is true, trigged different action
@@ -28,14 +29,14 @@ const userLogIn =  {
 
 if (resp.success) {
     postLogIn();
-    // logInAlert();
+    logInAlert();
 }  else {
 //this res.res.message. the first res is res = await authenticateUser. 
 //the second res.message is belong to authenticateUser function res
 formErrors = resp.res.error;
 // console.log(resp.res.error)
 clicked = false; //set clicked to false when cant log in
-// failedLogInAlert();
+failedLogInAlert();
 }
 }
 
@@ -104,3 +105,4 @@ clicked = false; //set clicked to false when cant log in
 </div> 
 </div> 
 </div> 
+

@@ -2,6 +2,7 @@
 import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
 import { authenticateUser } from './../../../utils/auth.js';
 import { goto } from '$app/navigation';
+import { signUpAlert, failedCreateAccount } from './../../../utils/alert.js';
 
 let formErrors = {};
 let clicked = false;
@@ -46,12 +47,13 @@ const userData = {
 
         if (res.success) {
             postSignUp();
-            // signUpAlert();
+            signUpAlert();
         } else {
             throw "Sign up suceeded but authentication failed";
         }
       } else {
         const res = await resp.json();
+        failedCreateAccount();
         // console.log(res)
         formErrors = res.data;
         clicked = false;

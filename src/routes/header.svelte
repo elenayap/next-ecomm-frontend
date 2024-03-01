@@ -43,7 +43,7 @@
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52">
                     <li><a href="/" class="normal-case text-base font-serif">Homepage</a></li>
                     <li><a href="/collections"class="normal-case text-base font-serif">Collections</a></li>
-                    <li><a href="/about"class="normal-case text-base font-serif">About</a></li>
+                    <li><a href="/about"class="normal-case text-base font-serif">About us</a></li>
                 </ul>
             </div>
         </div>
@@ -52,12 +52,20 @@
             <a href="/" class="normal-case text-base font-serif text-stone-50 bg-accent-content pl-4 pr-4 pt-2 pb-2"><img src="/abstract-art.png" alt="Logo" class="logo-image w-auto h-12 ">Art Curator</a>
         </div>
         <!-- Right section (Create Account and Log In buttons) -->
+        
         <div class="navbar-end flex items-center">
+            
             <!-- This block is rendered when $logIn is truthy (i.e., true) -->
             {#if $setLogIn} 
                 <!-- step1: if user is logged in -->
                 <a href="/" class= "link link-hover font-serif text-stone-50 text-lg mr-8" on:click={logOut}>Log Out</a>
-            {:else}
+              
+                <a class="link link-hover font-serif text-stone-50 text-lg flex items-center" on:click={logIn}>
+                    <img src="/image.png" alt="upload logo" class="logo-image w-auto h-6 mr-1 ">Upload Image
+                </a>
+                
+                 
+                {:else}
                 <!-- This block is rendered when $setLogIn is falsy (i.e., false)  -->
                 <!-- step2: if user is not logged in -->
                 <a href="/login" class="link link-hover font-serif  text-stone-50 text-lg mr-8">Log In</a>

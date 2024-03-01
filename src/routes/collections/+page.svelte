@@ -6,8 +6,8 @@
 <div class="container mt-10 mx-auto  lg:px-0"> 
  <div class="container mt-10 lg:mt-40 mx-auto lg:px-0">
     <div class="overflow-x-auto w-full" style="padding: 50px;">
+     
         <div class="flex flex-wrap grid grid-cols-1 lg:grid-cols-4 gap-3">
-    
         <!-- Card -->
         <div class="card card-compact  glass shadow-xl w-full lg:w-auto lg:max-w-xs mx-4 mb-4">
             <figure><img src="https://iiif.micr.io/TZCqF/full/600,/0/default.jpg" alt="sunflowers" /></figure>

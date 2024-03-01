@@ -6,7 +6,7 @@
     <div class="hero-overlay bg-opacity-40"></div>
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
-        <h1 class="mb-5 text-6xl font-bold font-serif">Discover Masterpieces: Your Gateway to the World of Art</h1>
+        <h1 class="mt-40 mb-5 text-6xl font-bold font-serif">Discover Masterpieces: Your Gateway to the World of Art</h1>
         <p class="mb-5 text-lg font-serif">Immerse yourself in the beauty of art with our curated collection spanning diverse genres and eras. From classical masterpieces to contemporary marvels, embark on a journey of discovery and appreciation.</p>
         <a href="/collections"class="btn btn-success text-lg font-serif w-40">Collections</a>
       </div>
@@ -14,12 +14,12 @@
   </div>
 
 
-  <div class="max-w-screen-xl mt-24 mx-auto lg:px-0">
-    <div class="mb-14 text-6xl font-serif">
+  <div class="max-w-screen-xl mt-20 mx-auto lg:px-0">
+    <div class="mb-10 text-6xl font-serif">
        <a>Hightlights</a>
     </div>
 <!-- Carosel with next/prev button -->
-<div class="carousel w-full">
+<div class="carousel w-full pb-48">
   <div id="slide1" class="carousel-item relative w-full">
     <img src="https://c4.wallpaperflare.com/wallpaper/547/188/59/boat-classic-art-reflection-stars-wallpaper-preview.jpg" class="w-full" style="background-image"/>
     <div class="absolute bottom-0 left-0 right-0 flex justify-center py-2 gap-6">
@@ -60,8 +60,10 @@
       <p class="text-4xl font-serif">Starry Night</p>
     </div>
   </div>
+  
 </div>
 </div>
+
 
 
 

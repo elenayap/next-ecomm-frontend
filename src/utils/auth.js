@@ -38,6 +38,16 @@ export function getUserId() {
     return null
   }
 
+  //to make user stay login after refresh
+  export async function checkLogin() {
+    if (!getTokenFromLocalStorage){
+      setLogIn.set(false)
+    }
+    else{
+      setLogIn.set(true)
+    }
+  }
+
 //5. create isLoggIn function to check if a user logged in by sending POST request 
 //to refresh the authentication getTokenFromLocalStorage()
 export async function isLoggedIn() {
