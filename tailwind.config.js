@@ -2,6 +2,13 @@
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
+    fontFamily: {
+      'sans': ['ui-sans-serif', 'system-ui','Apple Color Emoji',],
+      'serif': ['Cambria', 'Georgia','Times New Roman'],
+      'mono': ['ui-monospace', 'SFMono-Regular','Liberation Mono'],
+      'display': ['Oswald'],
+      'body': ["Open Sans"],
+    },
     extend: {},
   },
   plugins: [require("daisyui")],

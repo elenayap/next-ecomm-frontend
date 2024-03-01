@@ -1,62 +1,84 @@
 <script>
 
-
 </script>
 
-<div class="hero min-h-screen" style="background-image: url(https://wallpapercosmos.com/w/full/5/b/b/847722-2560x1600-desktop-hd-the-starry-night-vincent-van-gogh-background.jpg);">
-    <div class="hero-overlay bg-opacity-60"></div>
+<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
+    <div class="hero-overlay bg-opacity-40"></div>
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
-        <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-        <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-        <button class="btn btn-primary">Get Started</button>
+        <h1 class="mb-5 text-6xl font-bold font-serif">Discover Masterpieces: Your Gateway to the World of Art</h1>
+        <p class="mb-5 text-lg font-serif">Immerse yourself in the beauty of art with our curated collection spanning diverse genres and eras. From classical masterpieces to contemporary marvels, embark on a journey of discovery and appreciation.</p>
+        <a href="/collections"class="btn btn-success text-lg font-serif w-40">Collections</a>
       </div>
     </div>
   </div>
 
-  <div class="container mt-3 lg:mt-10 mx-auto px-2 lg:px-0">
-    <div class="grid grid-row-1 lg:grid-cols-3 gap-4">
-        <!-- Card -->
-        <div class="card card-compact w-96 bg-base-100 shadow-xl ml-12">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!
-                <div class="badge badge-secondary">NEW</div>
-              </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-          <!-- Card -->
-        <div class="card card-compact w-96 bg-base-100 shadow-xl ml-4">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!
-                <div class="badge badge-secondary">NEW</div>
-              </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-          <!-- Card -->
-        <div class="card card-compact w-96 bg-base-100 shadow-xl ml-4">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!
-                <div class="badge badge-secondary">NEW</div>
-              </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
+
+  <div class="max-w-screen-xl mt-24 mx-auto lg:px-0">
+    <div class="mb-14 text-6xl font-serif">
+       <a>Hightlights</a>
     </div>
+<!-- Carosel with next/prev button -->
+<div class="carousel w-full">
+  <div id="slide1" class="carousel-item relative w-full">
+    <img src="https://c4.wallpaperflare.com/wallpaper/547/188/59/boat-classic-art-reflection-stars-wallpaper-preview.jpg" class="w-full" style="background-image"/>
+    <div class="absolute bottom-0 left-0 right-0 flex justify-center py-2 gap-6">
+      <a href="#slide4" class="btn btn-circle opacity-50">❮</a> 
+      <a href="#slide2" class="btn btn-circle opacity-50">❯</a>
     </div>
+    <div class="absolute bottom-0 left-0 p-12 text-white">
+      <p class="text-4xl font-serif">Starry Night Over the Rhône</p>
+    </div>
+  </div> 
+  <div id="slide2" class="carousel-item relative w-full">
+    <img src="https://www.pixelstalk.net/wp-content/uploads/images6/Van-Gogh-Wallpaper-HD-Free-download.jpg" class="w-full" />
+    <div class="absolute bottom-0 left-0 right-0 flex justify-center py-2 gap-6">
+      <a href="#slide1" class="btn btn-circle opacity-50">❮</a> 
+      <a href="#slide3" class="btn btn-circle opacity-50">❯</a>
+    </div>
+    <div class="absolute bottom-0 left-0 p-12 text-white">
+      <p class="text-4xl font-serif">Wheat Field with Cypresses</p>
+    </div>
+  </div> 
+  <div id="slide3" class="carousel-item relative w-full">
+    <img src="https://wallpapercave.com/wp/WsAnDgR.jpg" class="w-full" />
+    <div class="absolute bottom-0 left-0 right-0 flex justify-center py-2 gap-6">
+      <a href="#slide2" class="btn btn-circle opacity-50">❮</a> 
+      <a href="#slide4" class="btn btn-circle opacity-50">❯</a>
+    </div>
+    <div class="absolute bottom-0 left-0 p-12 text-white">
+      <p class="text-4xl font-serif">The Night Café</p>
+    </div>
+  </div> 
+  <div id="slide4" class="carousel-item relative w-full">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" class="w-full" />
+    <div class="absolute bottom-0 left-0 right-0 flex justify-center py-2 gap-6">
+      <a href="#slide3" class="btn btn-circle opacity-50">❮</a> 
+      <a href="#slide1" class="btn btn-circle opacity-50">❯</a>
+    </div>
+    <div class="absolute bottom-0 left-0 p-12 text-white">
+      <p class="text-4xl font-serif">Starry Night</p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- <div class = "container mt-3 lg:mt-10 mx-auto px-2 lg:px-0">

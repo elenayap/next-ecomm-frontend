@@ -58,16 +58,19 @@ const userData = {
       }
     }
 </script>
-
-
-<h1 class="text-center text-xl">Sign Up</h1>
+<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
+    <div class="hero-overlay bg-opacity-40"></div>
+    <div class="hero-content text-center text-neutral-content">
+      <div class="max-w-md">
+<div class="justify-center">
+<h1 class="font-serif font-bold text-center text-3xl mt-24">Sign Up</h1>
   <div class="text-center">
   </div>
   <div class="flex justify-center items-center mt-8">
-      <form on:submit={createUser} class="w-1/3">
+      <form on:submit={createUser} class="w-screen">
           <div class="form-control w-full">
               <label class="label" for="name">
-                  <span class="label-text">Name</span>
+                  <span class="label-text font-serif">Name</span>
               </label>
               <input
                   type="text"
@@ -84,7 +87,7 @@ const userData = {
   
           <div class="form-control w-full">
               <label class="label" for="email">
-                  <span class="label-text">Email</span>
+                  <span class="label-text font-serif">Email</span>
               </label>
               <input
                   type="email"
@@ -102,7 +105,7 @@ const userData = {
   
           <div class="form-control w-full">
               <label class="label" for="password">
-                  <span class="label-text">Password</span>
+                  <span class="label-text font-serif">Password</span>
               </label>
               <input
                   type="password"
@@ -120,7 +123,7 @@ const userData = {
   
           <div class="form-control w-full">
               <label class="label" for="password">
-                  <span class="label-text">Confirm Password</span>
+                  <span class="label-text font-serif">Confirm Password</span>
               </label>
               <input
                   type="password"
@@ -139,15 +142,19 @@ const userData = {
           <div class="form-control w-full mt-8">
             {#if clicked}
             <button class="btn btn-active btn-primary" type="submit">
-              <span class="loading loading-spinner hover:btn-accent"></span>
-              Sign Up
+              <span class="loading loading-spinner hover:btn-accent font-serif"></span>
+              Create an Account
             </button>
-                <a class="link-hover italic text-xs text-center" href="/login">Already have an account? Click here to login instead.</a>
+                <a class="link-hover italic text-xs text-center mt-4 font-serif" href="/login">Already have an account? Click here to login instead.</a>
             {:else}
-                <button class="btn btn-primary hover:btn-accent" type="submit">
+                <button class="btn btn-primary hover:btn-accent font-serif" type="submit">
                 Create an Account</button>
-                  <a class="link-hover italic text-xs text-center" href="/login">Already have an account? Click here to login instead.</a>
+                  <a class="link-hover italic text-xs text-center mt-4 font-serif" href="/login">Already have an account? Click here to login instead.</a>
             {/if}
         </div>
       </form>
   </div>
+</div>
+</div>
+</div>
+</div>

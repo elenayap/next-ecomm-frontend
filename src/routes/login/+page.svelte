@@ -32,21 +32,27 @@ if (resp.success) {
 }  else {
 //this res.res.message. the first res is res = await authenticateUser. 
 //the second res.message is belong to authenticateUser function res
-formErrors = resp.res.message;
+formErrors = resp.res.error;
+// console.log(resp.res.error)
 clicked = false; //set clicked to false when cant log in
 // failedLogInAlert();
 }
 }
 
 </script>
-
-<h1 class="text-center text-xl">Log In</h1>
-
+<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
+    <div class="hero-overlay bg-opacity-40"></div>
+    <div class="hero-content text-center text-neutral-content">
+      <div class="max-w-md">
+<div class="justify-center">
+<h1 class="font-serif font-bold text-center text-3xl">Log In</h1>
+<div class="text-center">
+</div>
 <div class="flex justify-center items-center mt-8">
-    <form on:submit={logIn} class="w-1/3">
+    <form on:submit={logIn} class="w-screen">
         <div class="form-control w-full">
             <label class="label" for="email">
-                <span class="label-text">Email</span>
+                <span class="label-text font-serif">Email</span>
             </label>
             <input
                 type="text"
@@ -63,7 +69,7 @@ clicked = false; //set clicked to false when cant log in
 
         <div class="form-control w-full">
             <label class="label" for="password">
-                <span class="label-text">Password</span>
+                <span class="label-text font-serif">Password</span>
             </label>
             <input
                 type="password"
@@ -78,19 +84,23 @@ clicked = false; //set clicked to false when cant log in
             </label>
         {/if}
         </div>
-        <div class="form-control w-full mt-4">
+        <div class="form-control w-full mt-8">
             {#if clicked}
             <button class="btn btn-active btn-primary">
-              <span class="loading loading-spinner hover:btn-accent"></span>
+              <span class="loading loading-spinner hover:btn-accent font-serif"></span>
               LOG IN
             </button>
-            <a class="link-hover italic text-xs text-center " href="/users/new"
+            <a class="link-hover italic text-xs text-center mt-4 font-serif" href="/users/new"
           >Dont'have an account yet? Click here to sign-up instead.</a>
             {:else}
-                <button class="btn btn-primary hover:btn-accent">LOG IN</button>
-                <a class="link-hover italic text-xs text-center" href="/users/new"
+                <button class="btn btn-primary hover:btn-accent font-serif">LOG IN</button>
+                <a class="link-hover italic text-xs text-center mt-4 font-serif" href="/users/new"
           >Dont'have an account yet? Click here to sign-up instead.</a>
             {/if}
     </div>
     </form>
     </div>    
+</div> 
+</div> 
+</div> 
+</div> 
