@@ -22,6 +22,9 @@
             window.removeEventListener('scroll', handleScroll);
         };
     });
+
+
+
     
     </script>
 <div data-theme="forest">
@@ -60,10 +63,63 @@
                 <!-- step1: if user is logged in -->
                 <a href="/" class= "link link-hover font-serif text-stone-50 text-lg mr-8" on:click={logOut}>Log Out</a>
               
-                <a class="link link-hover font-serif text-stone-50 text-lg flex items-center" on:click={logIn}>
-                    <img src="/image.png" alt="upload logo" class="logo-image w-auto h-6 mr-1 ">Upload Image
-                </a>
+                <button class= "link link-hover font-serif text-stone-50 text-lg flex items-center" onclick="my_modal_2.showModal()">
+                    <img src="/image.png" alt="upload logo" class="logo-image w-auto h-6 mr-1 ">Upload Image</button>
+
+
+ <div class="form flex-col lg:flex-row">
+<dialog id="my_modal_2" class="modal cursor-pointer">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <form class="w-full">
+        <div class="form flex-col lg:flex-row">
+            <div class="form-control w-full lg=w-1/2 mt-2">
+                <input class="file-input w-full max w-xs" type="file" name="file">
+            </div>
+            <div class="form-control w-full lg=w-1/2 mt-2"></div>
+        </div>
+        <div class="form-control w-full">
+            <label class="label" for="image_price">   
+                <span class="label-text font-serif">Price</span>  
+            </label>
+            <input type="text" name="image_price" placeholder="1.99" class="input input-bordered w-full">
+        </div>
+    
+        <div class="form-control w-full">
+            <label class="label" for="image_title">   
+                <span class="label-text font-serif">Title</span>  
+            </label>
+            <input type="text" name="image_title" placeholder="sunset" class="input input-bordered w-full">
+        </div>
+    
+        <div class="form-control w-full">
+            <label class="label" for="image_description">   
+                <span class="label-text font-serif">Description</span>  
+            </label>
+            <textarea name="image_description" class="textarea textarea-bordered" placeholder="Beautiful Sunset in Los Angeles"></textarea>
+        </div>
+        <div class="form-control w-full mt-4">
+            <button class="btn btn-md">Upload</button>
+        </div>
+    </form>
+</div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+</div>
+                     
                 
+                
+                
+
+               
+                
+
+
+
+
+
+    
                  
                 {:else}
                 <!-- This block is rendered when $setLogIn is falsy (i.e., false)  -->
