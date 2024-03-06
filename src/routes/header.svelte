@@ -2,7 +2,12 @@
     import { isLoggedIn, logOut, setLogIn } from '../utils/auth.js';
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
+    import { uploadMedia } from '../utils/s3-uploader.js';
+    import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
+    import { getTokenFromLocalStorage } from '../utils/auth.js';
+
     
+    // let formErrors = {};
     
     function logIn() {
         // nologInAlert();
@@ -14,19 +19,57 @@
     function handleScroll() {
         isScrolled = window.scrollY > 0;
     }
-    
     // Attach scroll event listener when the component mounts
     onMount(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    });
+    }); 
+
+//function to handle upload image
+async function uploadImage(evt) {
+    const [fileName, fileUrl] = await uploadMedia(evt.target['file'].files[0]);
+    // create POST image request to backend upload image endpoint
+    const token = getTokenFromLocalStorage();
+   const imageData = {
+        image_price: parseInt(evt.target['image_price'].value),
+        image_title: evt.target['image_title'].value,
+        image_description: evt.target['image_description'].value,
+        image_url: fileUrl
+      };
+// console.log(imageData);
+    const resp = await fetch (
+        PUBLIC_BACKEND_BASE_URL + '/image',
+        {
+            method: 'POST',
+            mode:'cors',
+            headers: {
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(imageData)
+        }
+    );
+    const res = await resp.json();
+    if (resp.status == 200) {
+        goto (`/${res.id}`);
+       
+    } 
+    // else {
+        // console.error('Failed to upload image');
+        // formErrors = res.data;
+        
+    // } 
+};
+
+</script>
+
+<svelte:head>
+    <script src="/aws-sdk-s3.min.js"></script>
+  </svelte:head>
 
 
-
-    
-    </script>
 <div data-theme="forest">
 <div style="display: contents ">
     <div class="{isScrolled ? 'bg-secondary-content' : 'bg-transparent'} fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
@@ -70,10 +113,15 @@
  <div class="form flex-col lg:flex-row">
 <dialog id="my_modal_2" class="modal cursor-pointer">
   <div class="modal-box w-11/12 max-w-5xl">
-    <form class="w-full">
+    <form on:submit|preventDefault={uploadImage} class="w-full">
         <div class="form flex-col lg:flex-row">
             <div class="form-control w-full lg=w-1/2 mt-2">
-                <input class="file-input w-full max w-xs" type="file" name="file">
+                <input class="file-input w-full max w-xs" type="file" name="file" accept="image/*">
+                <!-- {#if 'file' in formErrors} -->
+                <!-- <label class="label" for="file">
+                    <span class="label-text-alt text-red-500">{formErrors['file']}</span>
+                </label>
+                {/if} -->
             </div>
             <div class="form-control w-full lg=w-1/2 mt-2"></div>
         </div>
@@ -107,20 +155,7 @@
   </form>
 </dialog>
 </div>
-                     
-                
-                
-                
-
-               
-                
-
-
-
-
-
-    
-                 
+                         
                 {:else}
                 <!-- This block is rendered when $setLogIn is falsy (i.e., false)  -->
                 <!-- step2: if user is not logged in -->
