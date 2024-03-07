@@ -8,7 +8,7 @@
       <div class="max-w-md">
         <h1 class="mt-40 mb-5 text-6xl font-bold font-serif">Discover Masterpieces: Your Gateway to the World of Art</h1>
         <p class="mb-5 text-lg font-serif">Immerse yourself in the beauty of art with our curated collection spanning diverse genres and eras. From classical masterpieces to contemporary marvels, embark on a journey of discovery and appreciation.</p>
-        <a href="/collections"class="btn btn-success text-lg font-serif w-40">Collections</a>
+        <a href="/collections/all"class="btn btn-success text-lg font-serif w-40">Collections</a>
       </div>
     </div>
   </div>

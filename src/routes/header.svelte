@@ -5,6 +5,7 @@
     import { uploadMedia } from '../utils/s3-uploader.js';
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
     import { getTokenFromLocalStorage } from '../utils/auth.js';
+   
 
     
     // let formErrors = {};
@@ -13,8 +14,8 @@
         // nologInAlert();
         goto("/")
     }
+
     let isScrolled = false;
-    
     // Function to handle scroll event
     function handleScroll() {
         isScrolled = window.scrollY > 0;
@@ -30,7 +31,7 @@
 //function to handle upload image
 async function uploadImage(evt) {
     const [fileName, fileUrl] = await uploadMedia(evt.target['file'].files[0]);
-    // create POST image request to backend upload image endpoint
+ //retrive token for authentication purpose log in user can post image   
     const token = getTokenFromLocalStorage();
    const imageData = {
         image_price: parseInt(evt.target['image_price'].value),
@@ -39,6 +40,7 @@ async function uploadImage(evt) {
         image_url: fileUrl
       };
 // console.log(imageData);
+// create POST image request to backend upload image endpoint
     const resp = await fetch (
         PUBLIC_BACKEND_BASE_URL + '/image',
         {
@@ -53,12 +55,14 @@ async function uploadImage(evt) {
     );
     const res = await resp.json();
     if (resp.status == 200) {
-        goto (`/${res.id}`);
+        goto (`/collections/${res.id}`); //link back to the created image page
        
     } 
     // else {
-        // console.error('Failed to upload image');
-        // formErrors = res.data;
+    //     console.error('Failed to upload image');
+    //     const errorData = await resp.json();
+    //     console.log('Error data:',errorData);
+    //     formErrors = res.data;
         
     // } 
 };
@@ -88,7 +92,7 @@ async function uploadImage(evt) {
                   </label>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52">
                     <li><a href="/" class="normal-case text-base font-serif">Homepage</a></li>
-                    <li><a href="/collections"class="normal-case text-base font-serif">Collections</a></li>
+                    <li><a href="/collections/all"class="normal-case text-base font-serif">Collections</a></li>
                     <li><a href="/about"class="normal-case text-base font-serif">About us</a></li>
                 </ul>
             </div>
