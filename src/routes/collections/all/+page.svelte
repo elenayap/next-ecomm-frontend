@@ -21,8 +21,8 @@ $: paginatedItems = paginate({ items: images, pageSize, currentPage })
 
 
  </script>
-<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
-    <div class="hero-overlay bg-opacity-40"></div>
+<div class="hero min-h-screen bg-white">
+    <!-- <div class="hero-overlay bg-opacity-90"></div> -->
 
 <div class="container mt-40 mx-auto  lg:px-0"> 
   <div class="overflow-x-auto w-full" style="padding: 50px;">
@@ -40,7 +40,7 @@ $: paginatedItems = paginate({ items: images, pageSize, currentPage })
               <div class="mt-4 text-xs">{image.image_description.slice(0,250)}...</div>
               <div class="text-sm">USD {humanize.formatNumber(image.image_price)}</div>
               <div class="card-actions justify-end">
-                <a class="btn btn-ghost" href="/collections/{image.id}">View More</a>
+                <a class="btn btn-ghost" href="/collections/{image.id}">View</a>
               </div>
             </div>
           </div> 
