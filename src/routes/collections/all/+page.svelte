@@ -1,5 +1,6 @@
 <script>
   import humanize from 'humanize-plus';
+  import { paginate, LightPaginationNav } from 'svelte-paginate'
 //this export let data is link to src/+page.js
    export let data;
 
@@ -12,6 +13,13 @@
       document.getElementById('my_modal_3').close();
     }
   }
+//Page pagination (Part 1)
+let images = data.image
+let currentPage = 1
+let pageSize = 8
+$: paginatedItems = paginate({ items: images, pageSize, currentPage })
+
+
  </script>
 <div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
     <div class="hero-overlay bg-opacity-40"></div>
@@ -20,7 +28,8 @@
   <div class="overflow-x-auto w-full" style="padding: 50px;">
      <div class="flex flex-wrap grid grid-cols-1 lg:grid-cols-4 gap-3">
         <!-- Card -->
-        {#each data.image as image}
+        <!-- {#each data.image as image} -->
+        {#each paginatedItems as image} 
         <div class="card card-compact  glass shadow-xl w-full lg:w-auto lg:max-w-xs mx-4 mb-4">
             <figure>
               <img class=" w-full h-96" src={image.image_url} alt={image.image_title}>
@@ -60,12 +69,19 @@
 </dialog>    -->
 {/each}
 </div>
-
 </div>
 </div>
 </div>
 
-    
+<!-- Page  pagination (Part 3) -->
+<LightPaginationNav
+totalItems="{images.length}"
+pageSize="{pageSize}"
+currentPage="{currentPage}"
+limit="{1}"
+showStepOptions="{true}"
+on:setPage="{(e) => currentPage = e.detail.page}"
+/>  
    
   
 
