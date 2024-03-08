@@ -4,6 +4,7 @@
     import humanize from 'humanize-plus';
     import { goto } from '$app/navigation';
     import { getUserId, getTokenFromLocalStorage } from '../../../utils/auth.js'
+    
 
 //this export let data is link to src/+page.js
     export let data;
@@ -43,6 +44,28 @@ const resp = await fetch(PUBLIC_BACKEND_BASE_URL + `/image/${data.image.id}`, {
  }
 
 
+
+//payment function
+ async function checkOutImage(id) {  //id = imageid
+  // console.log(data.image.id)
+  const resp = await fetch (PUBLIC_BACKEND_BASE_URL + `/payment`, {
+        method:'POST',
+        mode: 'cors', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({id})
+      });
+      const res = await resp.json();
+      window.location = res // res is go back to success url or cancel url set on backend
+  }
+ 
+  
+    
+
+ 
+  
+
 </script>
 
 <div class="hero min-h-screen bg-base-300">
@@ -56,7 +79,7 @@ const resp = await fetch(PUBLIC_BACKEND_BASE_URL + `/image/${data.image.id}`, {
             <h2 class="text-xl font-thin mt-10 mb-5">Price</h2>
             <p>USD {humanize.formatNumber(data.image.image_price)}</p>
             <div class="flex flex-row space-x-4 mt-10">
-            <button class="btn btn-primary">Buy Now</button>
+            <button type="submit" on:click={checkOutImage(data.image.id)} class="btn btn-primary">Buy Now</button>
 
 <!-- to make only user who create the job can see edit button -->
     {#if data.image.userId == getUserId() }

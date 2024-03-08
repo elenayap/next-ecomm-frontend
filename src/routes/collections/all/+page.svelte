@@ -27,7 +27,6 @@
             </figure>
             <div class="card-body">
               <h2 class="card-title font-serif">{image.image_title.slice(0,40)}
-                <div class="badge badge-secondary">NEW</div>
               </h2>
               <div class="mt-4 text-xs">{image.image_description.slice(0,250)}...</div>
               <div class="text-sm">USD {humanize.formatNumber(image.image_price)}</div>

@@ -28,7 +28,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@stripe/stripe-js": "^3.0.7",
 		"humanize-plus": "^1.8.2",
+		"stripe": "^14.20.0",
 		"svelte-markdown": "^0.4.1"
 	}
 }
