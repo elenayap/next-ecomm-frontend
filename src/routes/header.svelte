@@ -150,7 +150,7 @@ async function uploadImage(evt) {
             <textarea name="image_description" class="textarea textarea-bordered" placeholder="Beautiful Sunset in Los Angeles"></textarea>
         </div>
         <div class="form-control w-full mt-4">
-            <button class="btn btn-md">Upload</button>
+            <button class="btn btn-md" onclick="my_modal_2.close()">Upload</button>
         </div>
     </form>
 </div>
