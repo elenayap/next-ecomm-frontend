@@ -13,10 +13,11 @@
       document.getElementById('my_modal_3').close();
     }
   }
-//Page pagination (Part 1)
+
+//step 1: Page pagination 
 let images = data.image
 let currentPage = 1
-let pageSize = 8
+let pageSize = 8  //8 image cards per page
 $: paginatedItems = paginate({ items: images, pageSize, currentPage })
 
 
@@ -28,7 +29,8 @@ $: paginatedItems = paginate({ items: images, pageSize, currentPage })
   <div class="overflow-x-auto w-full" style="padding: 50px;">
      <div class="flex flex-wrap grid grid-cols-1 lg:grid-cols-4 gap-3">
         <!-- Card -->
-        <!-- {#each data.image as image} -->
+        <!-- {#each data.image as image}  -->
+        <!-- step 2: -->
         {#each paginatedItems as image} 
         <div class="card card-compact  glass shadow-xl w-full lg:w-auto lg:max-w-xs mx-4 mb-4">
             <figure>
@@ -73,7 +75,7 @@ $: paginatedItems = paginate({ items: images, pageSize, currentPage })
 </div>
 </div>
 
-<!-- Page  pagination (Part 3) -->
+<!-- Step 3:Page  pagination -->
 <LightPaginationNav
 totalItems="{images.length}"
 pageSize="{pageSize}"
@@ -86,21 +88,6 @@ on:setPage="{(e) => currentPage = e.detail.page}"
   
 
       
-
-          <!-- Card
-        <div class="card card-compact  glass shadow-xl w-full lg:w-auto lg:max-w-xs mx-4 mb-4">
-            <figure><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Vincent_van_Gogh_%281853-1890%29_Caf%C3%A9terras_bij_nacht_%28place_du_Forum%29_Kr%C3%B6ller-M%C3%BCller_Museum_Otterlo_23-8-2016_13-35-40.JPG" alt="Terrace of a café at night" /></figure>
-            <div class="card-body">
-              <h2 class="card-title font-serif">Terrace of a café at night
-                <div class="badge badge-secondary">NEW</div>
-              </h2>
-              <p>This painting of a colorful outdoor view is a picturesque work, the vision of a relaxed spectator who enjoys the charm of his surrounding without any moral concern. It recalls Van Gogh's mood when he wrote that "the night is more alive and more richly colored than the day." The color is more profuse and the eye wanders along the steeped or dove-tailed edges of neighboring areas - irregular shapes fitted to each other like a jigsaw puzzle design. To divide this space for long into a large object and background themes is difficult for the eyes; the distant and nearer parts are alike distinct. The yellow of the cafe plays against the blue-black of the remote street and the violet-blue of the foreground door, and, by a paradox of composition that helps to unify the work, at the strongest point of contrast the awning's blunt corner nearest to us touches the remote blue sky. Foreshortened lines that thrust into depth, like the lintel of the door, are strictly parallel to lines like the slope of the yellow awning and the roof of the house above, which lie in planes perpendicular to the first. For this roving, unengaged vision the upward dimension is no less important and expressive than the depth.</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-ghost">Buy Now</button>
-              </div>
-            </div>
-          </div> -->
-
 
 
 

@@ -35,7 +35,17 @@ export function logInAlert() {
 }
 
 //successful upload image
+export function uploadImageSuccessAlert() {
+    successAlert.set (true);
+    alertMessage.set("Image uploaded!")
+}
 
+
+//successful edit image
+export function editImageSuccessAlert() {
+    successAlert.set(true);
+    alertMessage.set("Image updated!")
+}
 
 //failed actions:
 

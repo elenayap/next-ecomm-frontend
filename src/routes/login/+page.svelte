@@ -41,10 +41,10 @@ failedLogInAlert();
 }
 
 </script>
-<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
-    <div class="hero-overlay bg-opacity-40"></div>
-    <div class="hero-content text-center text-neutral-content">
-      <div class="max-w-md">
+<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);"> 
+    <div class="hero-overlay bg-opacity-40"></div> 
+    <div class="hero-content text-center text-neutral-content  "> 
+      <div class="max-w-md"> 
 <div class="justify-center">
 <h1 class="font-serif font-bold text-center text-3xl">Log In</h1>
 <div class="text-center">
@@ -104,5 +104,6 @@ failedLogInAlert();
 </div> 
 </div> 
 </div> 
-</div> 
+</div>
+
 
