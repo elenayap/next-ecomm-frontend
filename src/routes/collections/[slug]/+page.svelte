@@ -76,8 +76,8 @@ const resp = await fetch(PUBLIC_BACKEND_BASE_URL + `/image/${data.image.id}`, {
             <h1 class="text-3xl font-bold mb-5">{data.image.image_title}</h1>
             <h2 class="text-xl font-bold mb-5">Description</h2>
             <SvelteMarkdown source={data.image.image_description}/>
-            <h2 class="text-xl font-thin mt-10 mb-5">Price</h2> 
-            <p>USD {humanize.formatNumber(data.image.image_price)}</p>
+            <h2 class="text-xl font-bold mt-10 mb-5 ">Price</h2> 
+            <p class="badge badge-accent text-lg">USD {humanize.formatNumber(data.image.image_price)}</p>
             <div class="flex flex-col  mt-5">
             <button type="submit" on:click={checkOutImage(data.image.id)} class="btn btn-outline rounded">Buy Now</button>
             <div class="flex flex-col  mt-5">

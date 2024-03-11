@@ -57,13 +57,7 @@ async function uploadImage(evt) {
        clicked = true;
        uploadImageSuccessAlert();
     } 
-    // else {
-    //     console.error('Failed to upload image');
-    //     const errorData = await resp.json();
-    //     console.log('Error data:',errorData);
-    //     formErrors = res.data;
-        
-    // } 
+
 };
 
 </script>
@@ -132,9 +126,8 @@ async function uploadImage(evt) {
             <label class="label" for="image_price">   
                 <span class="label-text font-serif">Price</span>  
             </label>
-            <input type="text" name="image_price" placeholder="1.99" class="input input-bordered w-full">
+             <input type="text" name="image_price" placeholder="1.99" class="input input-bordered w-full">
         </div>
-    
         <div class="form-control w-full">
             <label class="label" for="image_title">   
                 <span class="label-text font-serif">Title</span>  

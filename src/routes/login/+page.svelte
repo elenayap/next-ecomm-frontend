@@ -63,7 +63,7 @@ failedLogInAlert();
             />
             {#if 'email' in formErrors}
             <label class="label" for="email">
-                <span class="label-text-alt text-red-500">{formErrors['email'].message}</span>
+                <span class="label-text-alt text-red-500">{formErrors['email']}</span>
             </label>
         {/if}
         </div>
@@ -77,11 +77,10 @@ failedLogInAlert();
                 name="password"
                 placeholder=""
                 class="input input-bordered w-full"
-                required
             />
             {#if 'password' in formErrors}
             <label class="label" for="password">
-                <span class="label-text-alt text-red-500">{formErrors['password'].message}</span>
+                <span class="label-text-alt text-red-500">{formErrors['password']}</span>
             </label>
         {/if}
         </div>

@@ -38,6 +38,7 @@ export function logInAlert() {
 export function uploadImageSuccessAlert() {
     successAlert.set (true);
     alertMessage.set("Image uploaded!")
+    resetTimeout()
 }
 
 
@@ -45,6 +46,7 @@ export function uploadImageSuccessAlert() {
 export function editImageSuccessAlert() {
     successAlert.set(true);
     alertMessage.set("Image updated!")
+    resetTimeout()
 }
 
 //failed actions:
@@ -59,6 +61,6 @@ export function failedLogInAlert() {
 //unable to create account:
 export function failedCreateAccount() {
     failedAlert.set(true)
-    alertMessage.set("The email address is taken!")
-    resetTimeout
+    alertMessage.set("Please check your email/name!")
+    resetTimeout()
 }
