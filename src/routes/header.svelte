@@ -5,18 +5,15 @@
     import { uploadMedia } from '../utils/s3-uploader.js';
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
     import { getTokenFromLocalStorage } from '../utils/auth.js';
-   
-
-    
-    // let formErrors = {};
-    
+    import { uploadImageSuccessAlert } from '../utils/alert.js'
+      
     function logIn() {
         // nologInAlert();
         goto("/")
     }
 
+   // Function to handle scroll event
     let isScrolled = false;
-    // Function to handle scroll event
     function handleScroll() {
         isScrolled = window.scrollY > 0;
     }
@@ -29,6 +26,7 @@
     }); 
 
 //function to handle upload image
+let clicked = false;
 async function uploadImage(evt) {
     const [fileName, fileUrl] = await uploadMedia(evt.target['file'].files[0]);
  //retrive token for authentication purpose log in user can post image   
@@ -56,15 +54,10 @@ async function uploadImage(evt) {
     const res = await resp.json();
     if (resp.status == 200) {
         goto (`/collections/${res.id}`); //link back to the created image page
-       
+       clicked = true;
+       uploadImageSuccessAlert();
     } 
-    // else {
-    //     console.error('Failed to upload image');
-    //     const errorData = await resp.json();
-    //     console.log('Error data:',errorData);
-    //     formErrors = res.data;
-        
-    // } 
+
 };
 
 </script>
@@ -133,9 +126,8 @@ async function uploadImage(evt) {
             <label class="label" for="image_price">   
                 <span class="label-text font-serif">Price</span>  
             </label>
-            <input type="text" name="image_price" placeholder="1.99" class="input input-bordered w-full">
+             <input type="text" name="image_price" placeholder="1.99" class="input input-bordered w-full">
         </div>
-    
         <div class="form-control w-full">
             <label class="label" for="image_title">   
                 <span class="label-text font-serif">Title</span>  
@@ -150,7 +142,7 @@ async function uploadImage(evt) {
             <textarea name="image_description" class="textarea textarea-bordered" placeholder="Beautiful Sunset in Los Angeles"></textarea>
         </div>
         <div class="form-control w-full mt-4">
-            <button class="btn btn-md">Upload</button>
+            <button class="btn btn-md" onclick="my_modal_2.close()">Upload</button>
         </div>
     </form>
 </div>

@@ -3,6 +3,7 @@
     import { goto } from '$app/navigation';
     import { getTokenFromLocalStorage } from '../../../../utils/auth.js';
     import { uploadMedia } from '../../../../utils/s3-uploader.js';
+    import { editImageSuccessAlert } from '../../../../utils/alert.js';
    
     
     export let data;
@@ -19,7 +20,6 @@
     // Function to handle update image form 
     async function updateImage(evt) {
         evt.preventDefault();
-        
         const getToken = getTokenFromLocalStorage();
         const [fileName, fileUrl] = await uploadMedia(evt.target['file'].files[0]);
       
@@ -43,13 +43,12 @@
           if (resp.status == 200) {
             updatedImage();
             clicked = true;
-            // editJobSuccessAlert();
+            editImageSuccessAlert();
           } else {
             const res = await resp.json();
             // console.log(res)
             formErrors = res.message;
             clicked = false;
-            // editJobFailedAlert();
           }
       }
     

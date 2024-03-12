@@ -74,22 +74,24 @@ const resp = await fetch(PUBLIC_BACKEND_BASE_URL + `/image/${data.image.id}`, {
         <div class="flex flex-row  mt-8 w-2/5">
             <div class="max-w w-full">
             <h1 class="text-3xl font-bold mb-5">{data.image.image_title}</h1>
-            <h2 class="text-xl font-thin mb-5">Description</h2>
+            <h2 class="text-xl font-bold mb-5">Description</h2>
             <SvelteMarkdown source={data.image.image_description}/>
-            <h2 class="text-xl font-thin mt-10 mb-5">Price</h2>
-            <p>USD {humanize.formatNumber(data.image.image_price)}</p>
-            <div class="flex flex-row space-x-4 mt-10">
-            <button type="submit" on:click={checkOutImage(data.image.id)} class="btn btn-primary">Buy Now</button>
-
+            <h2 class="text-xl font-bold mt-10 mb-5 ">Price</h2> 
+            <p class="badge badge-accent text-lg">USD {humanize.formatNumber(data.image.image_price)}</p>
+            <div class="flex flex-col  mt-5">
+            <button type="submit" on:click={checkOutImage(data.image.id)} class="btn btn-outline rounded">Buy Now</button>
+            <div class="flex flex-col  mt-5">
 <!-- to make only user who create the job can see edit button -->
     {#if data.image.userId == getUserId() }
-    <button on:click={editImage} class="btn btn-primary">EDIT</button>
+    <button on:click={editImage} class="btn btn-outline rounded">EDIT</button>
     {/if}
-
+    <div class="flex flex-col  mt-5">
     <!-- to make only user who create the job can see delete button -->
     {#if data.image.userId == getUserId() }
-    <button on:click={deleteUserImage} class="btn btn-primary">DELETE</button>
+    <button on:click={deleteUserImage} class="btn btn-outline rounded">DELETE</button>
     {/if}
+</div>
+</div>
 </div>
 </div>
 </div>

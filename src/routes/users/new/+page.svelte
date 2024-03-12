@@ -55,17 +55,17 @@ const userData = {
         const res = await resp.json();
         failedCreateAccount();
         // console.log(res)
-        formErrors = res.data;
+        formErrors = res.error;
         clicked = false;
       }
     }
 </script>
 <div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
-    <div class="hero-overlay bg-opacity-40"></div>
+    <div class="hero-overlay bg-opacity-80"></div>
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
 <div class="justify-center">
-<h1 class="font-serif font-bold text-center text-3xl mt-24">Sign Up</h1>
+<h1 class="font-serif font-bold text-center text-3xl mt-28">Sign Up</h1>
   <div class="text-center">
   </div>
   <div class="flex justify-center items-center mt-8">
@@ -82,7 +82,7 @@ const userData = {
               />
               {#if 'name' in formErrors}
                   <label class="label" for="name">
-                      <span class="label-text-alt text-red-500">{formErrors['name'].message}</span>
+                      <span class="label-text-alt text-rose-700 font-bold">{formErrors['name']}</span>
                   </label>
               {/if}
           </div>
@@ -96,11 +96,10 @@ const userData = {
                   name="email"
                   placeholder="john@example.com"
                   class="input input-bordered w-full"
-                  required
               />
               {#if 'email' in formErrors}
                   <label class="label" for="email">
-                      <span class="label-text-alt text-red-500">{formErrors['email'].message}</span>
+                      <span class="label-text-alt text-rose-700 font-bold">{formErrors['email']}</span>
                   </label>
               {/if}
           </div>
@@ -118,14 +117,14 @@ const userData = {
               />
               {#if 'password' in formErrors}
                   <label class="label" for="password">
-                      <span class="label-text-alt text-red-500">{formErrors['password'].message}</span>
+                      <span class="label-text-alt text-rose-700 font-bold">{formErrors['password']}</span>
                   </label>
               {/if}
           </div>
   
           <div class="form-control w-full">
               <label class="label" for="password">
-                  <span class="label-text font-serif">Confirm Password</span>
+                  <span class="label-text font-serif font-bold">Confirm Password</span>
               </label>
               <input
                   type="password"
@@ -136,7 +135,7 @@ const userData = {
               />
               {#if 'password' in formErrors}
                   <label class="label" for="password">
-                      <span class="label-text-alt text-red-500">{formErrors['password'].message}</span>
+                      <span class="label-text-alt text-rose-700 font-bold">{formErrors['password']}</span>
                   </label>
               {/if}
           </div>

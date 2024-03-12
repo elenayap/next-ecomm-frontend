@@ -41,10 +41,10 @@ failedLogInAlert();
 }
 
 </script>
-<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);">
-    <div class="hero-overlay bg-opacity-40"></div>
-    <div class="hero-content text-center text-neutral-content">
-      <div class="max-w-md">
+<div class="hero min-h-screen" style="background-image: url(https://iiif.micr.io/rAERt/full/1280,/0/default.jpg);"> 
+    <div class="hero-overlay bg-opacity-40"></div> 
+    <div class="hero-content text-center text-neutral-content  "> 
+      <div class="max-w-md"> 
 <div class="justify-center">
 <h1 class="font-serif font-bold text-center text-3xl">Log In</h1>
 <div class="text-center">
@@ -63,7 +63,7 @@ failedLogInAlert();
             />
             {#if 'email' in formErrors}
             <label class="label" for="email">
-                <span class="label-text-alt text-red-500">{formErrors['email'].message}</span>
+                <span class="label-text-alt text-red-500">{formErrors['email']}</span>
             </label>
         {/if}
         </div>
@@ -77,11 +77,10 @@ failedLogInAlert();
                 name="password"
                 placeholder=""
                 class="input input-bordered w-full"
-                required
             />
             {#if 'password' in formErrors}
             <label class="label" for="password">
-                <span class="label-text-alt text-red-500">{formErrors['password'].message}</span>
+                <span class="label-text-alt text-red-500">{formErrors['password']}</span>
             </label>
         {/if}
         </div>
@@ -104,5 +103,6 @@ failedLogInAlert();
 </div> 
 </div> 
 </div> 
-</div> 
+</div>
+
 
